@@ -14,17 +14,10 @@ namespace Preparing
     {
         static void Main(string[] args)
         {
+            //Введите путь к файлу с введенной информацией
             string path = @".\enterInfo.txt";
-            StreamReader streamReader = new StreamReader(path);
-            string line = streamReader.ReadLine();
-            List<string[]> strings = new List<string[]>(); 
-            while (line != null && line != "")
-            {
-                //Сначала ввод длины, внешний диаметр, толщина стенки
-                string[] array = line.Split(';');
-                strings.Add(array);
-                line = streamReader.ReadLine();
-            }
+            FileReader fileReader = new FileReader();
+            List<string[]> strings = fileReader.FileRead(path);
             
             Console.ReadLine();
         }
